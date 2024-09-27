@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoneyShop</title>
+    <link rel="stylesheet" href="css/history.css" />
+  </head>
+  <body>
+    <main class="main">
+      <img class="logo" src="img/logo-black.svg" alt="Логотип" />
+      <div class="date__container date__container--history">
+        <input class="date__input" type="date" name="date" id="dateFrom" value="2024-08-16">
+        <input class="date__input" type="date" name="date" id="dateTo" value="2024-08-16">
+      </div>
+      <button class="history__button">Показать отчет</button>
+      <div class="history__info">
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">15.00 THB</div>
+            <div class="card-history__status card-history__status--success">Оплачено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">40.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">125.00 THB</div>
+            <div class="card-history__status card-history__status--cancel">Отменено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">339.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">12.00 THB</div>
+            <div class="card-history__status card-history__status--wait">Ожидает</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">32.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer class="footer">
+      <nav class="nav">
+        <ul class="menu">
+          <li class="menu__item menu__item--home">
+            <a href="#" class="menu__link"
+              ><img class="menu__img menu__img--home" src="img/home.svg" alt="" />
+              <p class="menu__text">Главная</p>
+            </a>
+          </li>
+          <li class="menu__item menu__item--info menu__item--active">
+            <a href="#" class="menu__link"
+              ><img class="menu__img" src="img/info-active.svg" alt="" />
+              <p class="menu__text">История</p></a
+            >
+          </li>
+          <li class="menu__item menu__item--return">
+            <a href="#" class="menu__link"
+              ><img class="menu__img" src="img/return-active.svg" alt="" />
+              <p class="menu__text">Выйти</p></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>

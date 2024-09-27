@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoneyShop</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="main">
+      <img class="logo" src="img/logo.svg" alt="Логотип" />
+      <p class="page__title page__title--main">Введите сумму ТНВ</p>
+      <form class="amount__form" action="">
+        <input class="auth__input" id="login_code" type="text" />
+        <div class="keyboard">
+          <button type="button" class="key" data-key="1">1</button>
+          <button type="button" class="key" data-key="2">2</button>
+          <button type="button" class="key" data-key="3">3</button>
+          <button type="button" class="key" data-key="4">4</button>
+          <button type="button" class="key" data-key="5">5</button>
+          <button type="button" class="key" data-key="6">6</button>
+          <button type="button" class="key" data-key="7">7</button>
+          <button type="button" class="key" data-key="8">8</button>
+          <button type="button" class="key" data-key="9">9</button>
+          <button type="button" class="key" data-key="0">0</button>
+          <button type="button" class="key backspace" data-key="backspace">
+            <img src="img/backspace.svg" alt="Кнопка Backspace" />
+          </button>
+          <button type="button" class="key clear" data-key="clear">C</button>
+          <button type="submit" class="key ok">OK</button>
+        </div>
+      </form>
+    </main>
+    <footer class="footer">
+      <nav class="nav">
+        <ul class="menu">
+          <li class="menu__item menu__item--home menu__item--active">
+            <a href="#" class="menu__link"
+              ><img class="menu__img" src="img/home-active.svg" alt="" />
+              <p class="menu__text">Главная</p>
+          </a>
+          </li>
+          <li class="menu__item menu__item--info">
+            <a href="#" class="menu__link"
+              ><img class="menu__img" src="img/info-active.svg" alt="" />
+              <p class="menu__text">История</p></a
+            >
+          </li>
+          <li class="menu__item menu__item--return">
+            <a href="#" class="menu__link"
+              ><img class="menu__img" src="img/return-active.svg" alt="" />
+              <p class="menu__text">Выйти</p></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </footer>
+    <script src="js/main.js"></script>
+  </body>
+</html>

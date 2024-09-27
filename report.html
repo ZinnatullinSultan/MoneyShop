@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MoneyShop</title>
+    <link rel="stylesheet" href="css/history.css" />
+  </head>
+  <body>
+    <main class="main">
+      <img class="logo" src="img/logo-black.svg" alt="Логотип" />
+      <p class="page__title page__title--report">Отчет за 2024-08-16</p>
+      <div class="date__container">
+        <input class="date__input" type="date" name="date" id="date" value="2024-08-16">
+        <button class="date__button">Показать отчет</button>
+      </div>
+      <p class="page__title report__title">Информация о транзакциях</p>
+      <div class="report__info">
+        <p class="report__text">ID организации: <span class="id-company">4</span></p>
+        <p class="report__text">Общее количество операций: <span class="transaction-amount">3</span></p>
+        <p class="report__text">Количество успешных операций (оплачено): <span class="transaction-success">1</span></p>
+        <p class="report__text">Cумма успешных операций (THB): <span class="amount-thb">15.00</span></p>
+        <p class="report__text">Cумма успешных операций (RUB): <span class="amount-rub">40.00</span></p>
+      </div>
+      <button class="date__button date__button--black">Закрыть счет</button>
+    </main>
+    <footer class="footer">
+      <nav class="nav">
+        <ul class="menu">
+          <li class="menu__item menu__item--home">
+            <a href="#" class="menu__link"
+              ><img class="menu__img menu__img--home" src="img/home.svg" alt="" />
+              <p class="menu__text">Главная</p>
+            </a>
+          </li>
+          <li class="menu__item menu__item--info menu__item--active">
+            <a href="#" class="menu__link"
+              ><img class="menu__img" src="img/info-active.svg" alt="" />
+              <p class="menu__text">История</p></a
+            >
+          </li>
+          <li class="menu__item menu__item--return">
+            <a href="#" class="menu__link"
+              ><img class="menu__img" src="img/return-active.svg" alt="" />
+              <p class="menu__text">Выйти</p></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </footer>
+  </body>
+</html>
