@@ -1,0 +1,179 @@
+@media (max-width: 610px) {
+  /* .footer{
+    padding-left: 30px;
+  } */
+  .date__container--history{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .history__button {
+    padding: 19px;
+}
+}
+@media (max-width: 550px) {
+  .menu__item{
+    padding: 16px 15px;
+    top: -40px;
+  }
+  .menu__item--active{
+    width: 120px;
+    top: -48px;
+  }
+  .menu__item--info {
+    left: 43%;
+  }
+  .menu__item--return {
+    left: 80%;
+  } 
+  .menu__item--active::after{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90px;
+    left: 15px;
+    bottom: -2px;
+  }
+  .footer{
+    padding: 40px 25px;
+  }
+  .main{
+    padding: 60px 25px;
+  } 
+  .attention__button, .payment__button {
+    width: 100%;
+    padding: 5px;
+    height: inherit;
+  }
+  .attention__lang {
+    font-size: 25px;
+    bottom: 15px;
+    right: 35px;
+  }
+}
+@media (max-width: 420px) {
+  .menu__item--active{
+    width: 105px;
+    height: 100px;
+  }
+  .menu__img {
+    width: 30px;
+    height: 29px;
+  }
+  .menu__item--info img {
+    width: 34px;
+    height: 30px;
+  }
+  .menu__item--return img {
+    width: 20px;
+    height: 24px;
+  }
+  .backspace img {
+    vertical-align: middle;
+    width: 20px;
+  }
+  .menu__link {
+    gap: 10px;
+  }
+  .menu__item--active::after{
+    width: 75px;
+    left: 15px;
+    bottom: -4px;
+  }
+  .menu__text {
+    font-size: 12px;
+  }
+  .main{
+    padding: 20px 25px;
+    margin-bottom: 15px;
+  }
+  body{
+    padding: 10px;
+  }
+  .logo{
+    height: 35px;
+  }
+  .page__title--auth, .page__title--main, .page__title--attention, .page__title--payment, .page__title--success{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+  .auth__form, .amount__form{
+    margin-bottom: 0;
+  }
+  .auth__input {
+    padding: 6px 19px;
+    height: 38px;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+  .key {
+    padding: 5px 15px;
+    height: 30px;
+  }
+  .footer{
+    height: 50px;
+  }
+  .page__title + img {
+    width: 30px;
+    margin-bottom: 5px;
+  }
+  .attention__hint {
+    font-size: 12px;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+  .attention__text {
+    margin-bottom: 15px;
+    font-size: 12px;
+    overflow-y: scroll;
+    height: 120px;
+  }
+  .attention__text--black {
+    margin-bottom: 15px;
+    font-size: 12px;
+    overflow-y: scroll;
+    height: 250px;
+    margin-top: 15px;
+  }
+  .attention__lang {
+    font-size: 14px;
+    bottom: 2px;
+    right: 15px;
+  }
+  .page__title--attention, .page__title--payment{
+    margin-bottom: 5px;
+  }
+  .payment__amount {
+    font-size: 18px;
+    color: #090e10;
+    margin-bottom: 15px;
+  }
+  .payment__amount + img {
+    margin-bottom: 5px;
+    width: 80px;
+  }
+  .attention__hint--fiscal + img {
+    width: 140px;
+}
+  .payment__timer, .payment__agreement{
+    font-size: 12px;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+  .payment__button--success{
+    margin-bottom: 80px;
+  }
+  .payment__button--failure  {
+    margin-bottom: 130px;
+  }
+  .payment__button--fiscal{
+    margin-bottom: 0;
+  }
+  .page__title--success {
+    margin-top: 55px;
+  }
+  .attention__hint--fiscal {
+    margin-top: 30px;
+    margin-bottom: 28px;
+  }
+}

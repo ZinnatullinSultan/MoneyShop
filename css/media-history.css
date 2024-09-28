@@ -1,0 +1,156 @@
+@media (max-width: 610px) {
+  .date__container--history{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .history__button {
+    padding: 19px;
+  }
+  .date__input {
+    width: 100%;
+}
+}
+@media (max-width: 550px) {
+  .menu__item{
+    padding: 16px 15px;
+    top: -40px;
+  }
+  .menu__item--active{
+    width: 120px;
+    top: -48px;
+  }
+  .menu__item--return {
+    left: 80%;
+  } 
+  .menu__item--active::after{
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 90px;
+    left: 15px;
+    bottom: -2px;
+  }
+  .footer{
+    padding: 40px 25px;
+  }
+  .card-history{
+    gap: 10px;
+  }
+  .date__container{
+    flex-direction: column;
+  }
+  .date__button--black {
+    margin-bottom: 18px;
+    width: 100%;
+    height: 58px;
+    margin-bottom: 208px;
+  }
+  .date__button {
+    width: 100%;
+}
+}
+@media (max-width: 420px) {
+  .menu__item--active{
+    width: 105px;
+    height: 100px;
+  }
+  .menu__img {
+    width: 30px;
+    height: 29px;
+  }
+  .menu__item--info img {
+    width: 34px;
+    height: 30px;
+  }
+  .menu__item--return img {
+    width: 20px;
+    height: 24px;
+  }
+  .menu__link {
+    gap: 10px;
+  }
+  .menu__item--active::after{
+    width: 75px;
+    left: 15px;
+    bottom: -4px;
+  }
+  .menu__text {
+    font-size: 12px;
+  }
+  .main{
+    padding: 20px 25px;
+    margin-bottom: 15px;
+  }
+  body{
+    padding: 10px;
+  }
+  .logo{
+    height: 35px;
+  }
+  .page__title--auth, .page__title--main, .page__title--attention, .page__title--payment, .page__title--success, .page__title--report{
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 16px;
+  }
+  .footer{
+    height: 50px;
+  }
+  .card-history:last-child {
+    margin-bottom: 0;
+  }
+  .date__container--history {
+    margin-top: 20px;
+
+  }
+  .date__input {
+    padding: 6px 19px 6px 45px;
+    height: 38px;
+  }
+  #dateFrom::before, #dateTo::before {
+    top: 8px;
+  }
+  #dateFrom::after, #dateTo::after {
+    top: 9px;
+  }
+  .history__button, .date__button {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
+  .history__info{
+    overflow-y: scroll;
+    height: 155px;
+  }
+  .page__title--report, .report__title {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 16px;
+  }
+  .page__title--report{
+    margin-top: 20px;
+    margin-bottom: 8px;
+  }
+  #date::before {
+    top: 8px;
+  }
+  .date__button--black {
+    margin-bottom: 0;
+  }
+  .report__text {
+    margin-bottom: 10px;
+    font-size: 12px;
+  }
+  .report__title {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .date__button{
+    height: 30px;
+    margin-bottom: 0;
+  }
+  .date__container {
+    margin-bottom: 10px;
+  }
+  .report__text:last-child {
+    margin-bottom: 10px;
+}
+}

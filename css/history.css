@@ -90,7 +90,6 @@ button {
   margin-bottom: 36px;
 }
 .footer {
-  position: relative;
   padding: 0 80px;
   height: 112px;
   background-color: #22272b;
@@ -101,19 +100,25 @@ button {
     238px 561px 244px 0 rgba(0, 0, 0, 0.02),
     372px 877px 267px 0 rgba(0, 0, 0, 0);
 }
+.menu{
+  width: 100%;
+  position: relative;
+}
 .menu__item {
   padding: 16px 45px;
   position: absolute;
   text-align: center;
 }
 .menu__item--home {
-  left: 80px;
+  left: 0;
 }
 .menu__item--info {
-  left: 261px;
+  /* left: 181px; */
+  left: 35%;
 }
 .menu__item--return {
-  left: 438px;
+  /* left: 358px; */
+  left: 70%;
 }
 .menu__item--return img {
   width: 37px;
@@ -175,6 +180,7 @@ button {
   width: 100%;
   align-items: center;
   margin-bottom: 27px;
+  gap: 10px;
 }
 .date__container--history {
   margin-top: 93px;
