@@ -7,35 +7,37 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/media.css">
   </head>
-  <body>
+  <body data-guid="31aab662-947c-7444-9814-ba740470074f">
     <main class="main main--white">
-      <img class="logo" src="img/logo-black.svg" alt="Логотип" />
-      <p class="page__title page__title--payment">Сканировать QR-код</p>
-      <p class="payment__amount">15.00 THB</p>
-      <img src="img/qr-pay.png" alt="qr-код оплаты" />
-      <p class="attention__hint">
-        Запустите мобильное приложение вашего банка, отсканируйте QR-код и подтвердите платеж
-      </p>
-      <button class="payment__button">отменить</button>
-      <p class="payment__timer">Завершите платеж в течение: <span class="timer">14:48</span></p>
-      <p class="payment__agreement">Свершая оплату вы соглашаетесь с офертой</p>
+      <form id="currencyForm">
+        <img class="logo" src="img/logo-black.svg" alt="Логотип" />
+        <p class="page__title page__title--payment">Сканировать QR-код</p>
+        <p class="payment__amount">15.00 THB</p>
+        <img src="img/qr-pay.png" alt="qr-код оплаты" />
+        <p class="attention__hint">
+          Запустите мобильное приложение вашего банка, отсканируйте QR-код и подтвердите платеж
+        </p>
+        <button onclick="cancelPayment()" id="cancel-button" class="payment__button">отменить</button>
+        <p id="countdown" class="payment__timer">Завершите платеж в течение: 14:48</p>
+        <p class="payment__agreement">Свершая оплату вы соглашаетесь с офертой</p>
+      </form>
     </main>
     <footer class="footer">
       <nav class="nav">
         <ul class="menu">
-          <li class="menu__item menu__item--home menu__item--active">
+          <li id="home" class="menu__item menu__item--home menu__item--active">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/home-active.svg" alt="" />
               <p class="menu__text">Главная</p>
             </a>
           </li>
-          <li class="menu__item menu__item--info">
+          <li id="history" class="menu__item menu__item--info">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/info-active.svg" alt="" />
               <p class="menu__text">История</p></a
             >
           </li>
-          <li class="menu__item menu__item--return">
+          <li id="exit" class="menu__item menu__item--return">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/return-active.svg" alt="" />
               <p class="menu__text">Выйти</p></a
@@ -44,5 +46,104 @@
         </ul>
       </nav>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const countdownElement = document.getElementById('countdown');
+          let countdownTime = 15 * 60; // 15 минут в секундах
+      
+          function updateCountdown() {
+              if (countdownTime < 0) {
+                  clearInterval(countdownInterval);
+                  alert('Время истекло');
+                  // Дополнительные действия при истечении времени
+                  return;
+              }
+              const minutes = Math.floor(countdownTime / 60);
+              const seconds = (countdownTime % 60).toString().padStart(2, '0');
+              countdownElement.textContent = `Завершите платеж в течение: ${minutes}:${seconds}`;
+              countdownTime--;
+          }
+      
+          const countdownInterval = setInterval(updateCountdown, 1000);
+      
+          const guid = document.body.dataset.guid;
+          if (!guid) {
+              alert('Отсутствует параметр GUID');
+          } else {
+              checkPaymentStatus(guid);
+          }
+      });
+      
+      function cancelPayment() {
+          const guid = document.body.dataset.guid;
+          if (!guid) {
+              alert('Отсутствует параметр GUID');
+              return;
+          }
+      
+          fetch('cancel_payment.php', {
+              method: 'POST',
+              headers: {
+                  'Content-Type': 'application/json'
+              },
+              body: JSON.stringify({ guid })
+          })
+          .then(response => response.json())
+          .then(res => {
+              if (res.status === 'success') {
+                  window.location.href = 'https://pay.mspayment.space/pos/';
+              } else {
+                  alert('Ошибка отмены платежа: ' + res.message);
+              }
+          })
+          .catch(() => alert('Ошибка при отмене платежа'));
+      }
+      
+      function checkPaymentStatus(guid) {
+          function connect() {
+              const eventSource = new EventSource(`/pos/sse.php?guid=${guid}`);
+      
+              eventSource.onmessage = event => {
+                  try {
+                      const data = JSON.parse(event.data);
+                      if (data.status === 'Оплачено') {
+                          window.location.href = `success.php?guid=${guid}`;
+                          eventSource.close();
+                      }
+                  } catch (error) {
+                      console.error('Ошибка обработки данных:', error);
+                  }
+              };
+      
+              eventSource.onerror = event => {
+                  console.error('Ошибка соединения:', event);
+                  eventSource.close();
+      
+                  // Попытка повторного подключения через 5 секунд
+                  setTimeout(() => {
+                      console.log('Повторное подключение...');
+                      connect();
+                  }, 5000);
+              };
+          }
+      
+          // Первичное подключение
+          connect();
+      }
+      
+      
+      document.addEventListener('click', event => {
+          const buttonActions = {
+              home: 'index.php',
+              history: 'history.php',
+              exit: 'logout.php'
+          };
+      
+          if (event.target.id in buttonActions) {
+              window.location.href = buttonActions[event.target.id];
+          }
+      });
+          </script>
   </body>
 </html>

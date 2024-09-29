@@ -11,8 +11,8 @@
     <main class="main">
       <img class="logo" src="img/logo.svg" alt="Логотип" />
       <p class="page__title page__title--main">Введите сумму ТНВ</p>
-      <form class="amount__form" action="">
-        <input class="auth__input" id="login_code" type="text" />
+      <form id="currencyForm" class="amount__form" action="">
+        <input class="auth__input" id="amountTo" type="text" />
         <div class="keyboard">
           <button type="button" class="key" data-key="1">1</button>
           <button type="button" class="key" data-key="2">2</button>
@@ -35,19 +35,19 @@
     <footer class="footer">
       <nav class="nav">
         <ul class="menu">
-          <li class="menu__item menu__item--home menu__item--active">
+          <li id="home" class="menu__item menu__item--home menu__item--active">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/home-active.svg" alt="" />
               <p class="menu__text">Главная</p>
           </a>
           </li>
-          <li class="menu__item menu__item--info">
+          <li id="history" class="menu__item menu__item--info">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/info-active.svg" alt="" />
               <p class="menu__text">История</p></a
             >
           </li>
-          <li class="menu__item menu__item--return">
+          <li id="exit" class="menu__item menu__item--return">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/return-active.svg" alt="" />
               <p class="menu__text">Выйти</p></a
@@ -56,6 +56,86 @@
         </ul>
       </nav>
     </footer>
-    <script src="js/main.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+          const inputField = document.getElementById('amountTo');
+          const keys = document.querySelectorAll('.key:not(.ok)');
+
+          function formatNumber(value) {
+              return value.replace(/\B(?=(\d{3})+(?!\d))/g, ' ');
+          }
+
+          function unformatNumber(value) {
+              return value.replace(/\s/g, '');
+          }
+
+          keys.forEach(key => {
+              key.addEventListener('click', () => {
+                  const keyValue = key.getAttribute('data-key');
+                  let unformattedValue = unformatNumber(inputField.value);
+
+                  if (keyValue === 'clear') {
+                      inputField.value = '';
+                  } else if (keyValue === 'backspace') {
+                      inputField.value = formatNumber(unformattedValue.slice(0, -1));
+                  } else {
+                      if (keyValue === '.' && unformattedValue.includes('.')) {
+                          return; // Предотвращаем добавление более одной точки
+                      }
+                      inputField.value = formatNumber(unformattedValue + keyValue);
+                  }
+              });
+          });
+
+          document.getElementById('currencyForm').addEventListener('submit', async (e) => {
+              e.preventDefault();
+
+              const amountTo = unformatNumber(inputField.value);
+              if (amountTo === '') {
+                  alert('Пожалуйста, введите сумму.');
+                  return;
+              }
+
+              const data = {
+                  amountTo: amountTo,
+                  currency: 'THB',
+                  bank: 'alfabank',
+                  amountFrom: amountTo
+              };
+
+              try {
+                  const response = await fetch('create_transaction.php', {
+                      method: 'POST',
+                      headers: {
+                          'Content-Type': 'application/json'
+                      },
+                      body: JSON.stringify(data)
+                  });
+
+                  const result = await response.json();
+
+                  if (result.status === 'success') {
+                      window.location.href = result.url;
+                  } else {
+                      alert(result.message);
+                  }
+              } catch (error) {
+                  alert('Произошла ошибка при создании транзакции.');
+              }
+          });
+      });
+
+      document.getElementById('home').addEventListener('click', () => {
+          window.location.href = 'index.php';
+      });
+
+      document.getElementById('history').addEventListener('click', () => {
+          window.location.href = 'history.php';
+      });
+
+      document.getElementById('exit').addEventListener('click', () => {
+          window.location.href = 'logout.php';
+      });
+  </script>
   </body>
 </html>

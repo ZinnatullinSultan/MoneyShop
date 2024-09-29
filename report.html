@@ -23,24 +23,24 @@
         <p class="report__text">Cумма успешных операций (THB): <span class="amount-thb">15.00</span></p>
         <p class="report__text">Cумма успешных операций (RUB): <span class="amount-rub">40.00</span></p>
       </div>
-      <button class="date__button date__button--black">Закрыть счет</button>
+      <button id="closeShift" class="date__button date__button--black">Закрыть счет</button>
     </main>
     <footer class="footer">
       <nav class="nav">
         <ul class="menu">
-          <li class="menu__item menu__item--home">
+          <li id="home" class="menu__item menu__item--home">
             <a href="#" class="menu__link"
               ><img class="menu__img menu__img--home" src="img/home.svg" alt="" />
               <p class="menu__text">Главная</p>
             </a>
           </li>
-          <li class="menu__item menu__item--info menu__item--active">
+          <li id="history" class="menu__item menu__item--info menu__item--active">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/info-active.svg" alt="" />
               <p class="menu__text">История</p></a
             >
           </li>
-          <li class="menu__item menu__item--return">
+          <li id="exit" class="menu__item menu__item--return">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/return-active.svg" alt="" />
               <p class="menu__text">Выйти</p></a
@@ -49,5 +49,37 @@
         </ul>
       </nav>
     </footer>
+    <script>
+      const mainButton = document.getElementById('home');
+      if (mainButton) {
+          mainButton.addEventListener('click', () => {
+              window.location.href = 'index.php';
+          });
+      }
+
+      const historyButton = document.getElementById('history');
+      if (historyButton) {
+          historyButton.addEventListener('click', () => {
+              window.location.href = 'history.php';
+          });
+      }
+
+      const exitButton = document.getElementById('exit');
+      if (exitButton) {
+          exitButton.addEventListener('click', () => {
+              window.location.href = 'logout.php';
+          });
+      }
+
+      const closeShiftButton = document.getElementById('closeShift');
+      if (closeShiftButton) {
+          closeShiftButton.addEventListener('click', () => {
+              if (confirm('Вы уверены, что хотите закрыть смену?')) {
+                  // Логика закрытия смены
+                  alert('Смена закрыта.');
+              }
+          });
+      }
+  </script>
   </body>
 </html>

@@ -19,19 +19,19 @@
     <footer class="footer">
       <nav class="nav">
         <ul class="menu">
-          <li class="menu__item menu__item--home menu__item--active">
+          <li id="home" class="menu__item menu__item--home menu__item--active">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/home-active.svg" alt="" />
               <p class="menu__text">Главная</p>
             </a>
           </li>
-          <li class="menu__item menu__item--info">
+          <li id="history" class="menu__item menu__item--info">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/info.svg" alt="" />
               <p class="menu__text">История</p></a
             >
           </li>
-          <li class="menu__item menu__item--return">
+          <li id="exit" class="menu__item menu__item--return">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/return.svg" alt="" />
               <p class="menu__text">Выйти</p></a
@@ -40,5 +40,18 @@
         </ul>
       </nav>
     </footer>
+    <script>
+      document.getElementById('home').addEventListener('click', () => {
+          window.location.href = 'index.php';
+      });
+
+      document.getElementById('history').addEventListener('click', () => {
+          window.location.href = 'history.php';
+      });
+
+      document.getElementById('exit').addEventListener('click', () => {
+          window.location.href = 'logout.php';
+      });
+  </script>
   </body>
 </html>

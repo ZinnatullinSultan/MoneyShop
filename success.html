@@ -11,26 +11,26 @@
     <main class="main main--white">
       <img class="logo" src="img/logo-black.svg" alt="Логотип" />
       <p class="page__title page__title--success">Спасибо<br>Оплата получена</p>
-      <p class="payment__amount">15.00 THB</p>
+      <p id="amount" class="payment__amount">15.00 THB</p>
       <button class="payment__button payment__button--black">Фискальный чек</button>
       <button class="payment__button payment__button--success">Главная</button>
     </main>
     <footer class="footer">
       <nav class="nav">
         <ul class="menu">
-          <li class="menu__item menu__item--home menu__item--active">
+          <li id="home" class="menu__item menu__item--home menu__item--active">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/home-active.svg" alt="" />
               <p class="menu__text">Главная</p>
             </a>
           </li>
-          <li class="menu__item menu__item--info">
+          <li id="history" class="menu__item menu__item--info">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/info.svg" alt="" />
               <p class="menu__text">История</p></a
             >
           </li>
-          <li class="menu__item menu__item--return">
+          <li id="exit" class="menu__item menu__item--return">
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/return.svg" alt="" />
               <p class="menu__text">Выйти</p></a
@@ -39,5 +39,24 @@
         </ul>
       </nav>
     </footer>
+    <script>
+      document.getElementById('print_bttn').addEventListener('click', function() {
+          var content = document.getElementById('amount').textContent;
+          AndroidInterface.printContent(content);
+      });
+      
+      
+              document.getElementById('home').addEventListener('click', () => {
+                  window.location.href = 'index.php';
+              });
+      
+              document.getElementById('history').addEventListener('click', () => {
+                  window.location.href = 'history.php';
+              });
+      
+              document.getElementById('exit').addEventListener('click', () => {
+                  window.location.href = 'logout.php';
+              });
+          </script>
   </body>
 </html>
