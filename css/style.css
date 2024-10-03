@@ -140,6 +140,7 @@ button {
 }
 .ok {
   grid-column-start: span 3;
+  background: #ffae00;
 }
 .clear {
   background: #becfda;
