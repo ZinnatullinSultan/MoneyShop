@@ -11,6 +11,14 @@
     padding: 19px;
 }
 }
+/* @media (max-height: 1076px) {
+  body{
+    display: block;
+  }
+  html,body{
+    height: inherit;
+  }
+} */
 @media (max-width: 550px) {
   .menu__item{
     padding: 16px 15px;
@@ -116,6 +124,7 @@
   }
   .footer{
     height: 50px;
+    min-height: auto;
   }
   .page__title + img {
     width: 30px;

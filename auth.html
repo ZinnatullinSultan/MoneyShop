@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Авторизация</title>
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/media.css">
+    <link rel="stylesheet" href="css/media.css" />
   </head>
   <body>
     <main class="main">
@@ -39,7 +39,7 @@
             <a href="#" class="menu__link"
               ><img class="menu__img" src="img/home-active.svg" alt="" />
               <p class="menu__text">Главная</p>
-          </a>
+            </a>
           </li>
           <li id="history" class="menu__item menu__item--info">
             <a href="#" class="menu__link"
@@ -58,92 +58,99 @@
     </footer>
     <script>
       document.addEventListener('DOMContentLoaded', () => {
-          const loginCodeInput = document.getElementById('login_code');
-          let code = '';
-  
-          function updateCode() {
-              const formattedCode = code.replace(/(\d{3})(\d{0,3})(\d{0,3})(\d{0,3})/, (_, p1, p2, p3, p4) => {
-                  let result = p1;
-                  if (p2) result += '-' + p2;
-                  if (p3) result += '-' + p3;
-                  if (p4) result += '-' + p4;
-                  return result;
-              });
-              loginCodeInput.value = formattedCode;
+        const loginCodeInput = document.getElementById('login_code');
+        let code = '';
+
+        function updateCode() {
+          const formattedCode = code.replace(
+            /(\d{3})(\d{0,3})(\d{0,3})(\d{0,3})/,
+            (_, p1, p2, p3, p4) => {
+              let result = p1;
+              if (p2) result += '-' + p2;
+              if (p3) result += '-' + p3;
+              if (p4) result += '-' + p4;
+              return result;
+            }
+          );
+          loginCodeInput.value = formattedCode;
+        }
+
+        function handleKeyClick(key) {
+          if (key === 'backspace') {
+            code = code.slice(0, -1);
+          } else if (key === 'clear') {
+            code = '';
+          } else if (code.length < 12 && !isNaN(key)) {
+            code += key;
           }
-  
-          function handleKeyClick(key) {
-              if (key === 'backspace') {
-                  code = code.slice(0, -1);
-              } else if (key === 'clear') {
-                  code = '';
-              } else if (code.length < 12 && !isNaN(key)) {
-                  code += key;
-              }
-              updateCode();
-          }
-  
-          function logResponse(response, result) {
-              console.log('Authorization response status:', response.status);
-              console.log('Authorization response body:', result);
-          }
-  
-          function handleError(error) {
-              console.error('Error connecting to server:', error);
-              alert('Ошибка при соединении с сервером.');
-          }
-  
-  
-  async function submitForm(e) {
-      e.preventDefault();
-      if (code.length === 12) {
-          try {
+          updateCode();
+        }
+
+        function logResponse(response, result) {
+          console.log('Authorization response status:', response.status);
+          console.log('Authorization response body:', result);
+        }
+
+        function handleError(error) {
+          console.error('Error connecting to server:', error);
+          alert('Ошибка при соединении с сервером.');
+        }
+
+        async function submitForm(e) {
+          e.preventDefault();
+          if (code.length === 12) {
+            try {
               console.log('Sending authorization request with code:', code);
-  
+
               const authResponse = await fetch('authorize.php', {
-                  method: 'POST',
-                  headers: {
-                      'Content-Type': 'application/json'
-                  },
-                  body: JSON.stringify({ password: code })
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ password: code }),
               });
-  
+
               const result = await authResponse.json();
-  
+
               logResponse(authResponse, result);
-  
+
               if (result.status === 'success') {
-                  console.log('Authorization successful. Redirecting to index.php');
-  
-                  // Принудительно обновляем куки
-                  document.cookie = "PHPSESSID=" + result.session_id + "; path=/;";
-  
-                  // Стандартный редирект
-                  window.location.href = 'index.php';
+                console.log(
+                  'Authorization successful. Redirecting to index.php'
+                );
+
+                // Принудительно обновляем куки
+                document.cookie =
+                  'PHPSESSID=' + result.session_id + '; path=/;';
+
+                // Стандартный редирект
+                window.location.href = 'index.php';
               } else {
-                  console.error('Authorization failed:', result.message);
-                  alert('Ошибка: ' + result.message);
+                console.error('Authorization failed:', result.message);
+                alert('Ошибка: ' + result.message);
               }
-  
-          } catch (error) {
+            } catch (error) {
               console.error('Error during authorization:', error);
               alert('Произошла ошибка при авторизации. Попробуйте еще раз.');
+            }
+          } else {
+            alert('Пожалуйста, введите полный код авторизации.');
+            code = '';
+            updateCode();
           }
-      } else {
-          alert('Пожалуйста, введите полный код авторизации.');
-          code = '';
-          updateCode();
-      }
-  }
-  
-  
-          // Подключаем обработчики событий
-          document.querySelectorAll('.key').forEach(button => {
-              button.addEventListener('click', () => handleKeyClick(button.getAttribute('data-key')));
-          });
-  
-          document.getElementById('loginForm').addEventListener('submit', submitForm);
+        }
+
+        // Подключаем обработчики событий
+        document.querySelectorAll('.key').forEach((button) => {
+          button.addEventListener('click', () =>
+            handleKeyClick(button.getAttribute('data-key'))
+          );
+        });
+
+        document
+          .getElementById('loginForm')
+          .addEventListener('submit', submitForm);
       });
-  </script>
+    </script>
   </body>
 </html>

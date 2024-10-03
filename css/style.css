@@ -26,14 +26,21 @@
     scroll-behavior: smooth;
   }
 }
+html, body{
+  height: 100%;
+}
 body {
   margin: 0;
-  padding: 46px 25px 27px;
+  padding: 46px 25px 0;
   font-family: 'Stem', sans-serif;
   font-weight: 500;
   font-size: 16px;
   background-color: #444444;
   color: #000000;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 p,
 button,
@@ -58,7 +65,7 @@ input {
   border: none;
   outline: none;
 }
-button {
+button { 
   font-size: 14px;
   line-height: 150%;
   letter-spacing: 0.1em;
@@ -69,6 +76,7 @@ button {
   border-radius: 20px;
 }
 .main {
+  flex-grow: 1;
   border-radius: 20px;
   padding: 60px 82px 60px 80px;
   background: #22272b;
@@ -82,8 +90,8 @@ button {
 .page__title--auth,
 .page__title--main {
   color: #ffffff;
-  margin-bottom: 27px;
-  margin-top: 149px;
+   margin-bottom: 27px; 
+   margin-top: 149px; 
 }
 .page__title--attention {
   color: #090e10;
@@ -115,10 +123,6 @@ button {
   line-height: 150%;
   color: #fff;
 }
-.auth__form,
-.amount__form {
-  margin-bottom: 202px;
-}
 .keyboard {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -148,7 +152,8 @@ button {
 }
 .footer {
   padding: 0 80px;
-  height: 112px;
+  min-height: 112px;
+  margin-bottom: 24px;
   background-color: #22272b;
   border-radius: 20px;
   box-shadow: 15px 35px 84px 0 rgba(0, 0, 0, 0.14),
@@ -292,7 +297,7 @@ button {
   margin-bottom: 156px;
 }
 .payment__button--failure {
-  margin-bottom: 301px;
+  margin-bottom: 230px;
 }
 .payment__button--fiscal {
   margin-bottom: 194px;
