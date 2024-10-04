@@ -9,13 +9,185 @@
   </head>
   <body>
     <main class="main">
-      <img class="logo" src="img/logo-black.svg" alt="Логотип" />
+      <!-- <img class="logo" src="img/logo-black.svg" alt="Логотип" /> -->
       <div class="date__container date__container--history">
-        <input class="date__input" type="date" name="date" id="dateFrom" value="2024-08-16">
-        <input class="date__input" type="date" name="date" id="dateTo" value="2024-08-16">
+        <form id="filterForm" method="GET">
+          <div class="date__filters">
+            <input class="date__input" type="date" name="start_date" id="dateFrom" value="2024-10-04">
+            <input class="date__input" type="date" name="end_date" id="dateTo" value="2024-10-04">
+          </div>
+          <button type="submit" class="history__button">Показать отчет</button>
+      </form>
       </div>
-      <button class="history__button">Показать отчет</button>
       <div class="history__info">
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">15.00 THB</div>
+            <div class="card-history__status card-history__status--success">Оплачено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">40.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">125.00 THB</div>
+            <div class="card-history__status card-history__status--cancel">Отменено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">339.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">12.00 THB</div>
+            <div class="card-history__status card-history__status--wait">Ожидает</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">32.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">15.00 THB</div>
+            <div class="card-history__status card-history__status--success">Оплачено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">40.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">125.00 THB</div>
+            <div class="card-history__status card-history__status--cancel">Отменено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">339.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">12.00 THB</div>
+            <div class="card-history__status card-history__status--wait">Ожидает</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">32.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">15.00 THB</div>
+            <div class="card-history__status card-history__status--success">Оплачено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">40.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">125.00 THB</div>
+            <div class="card-history__status card-history__status--cancel">Отменено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">339.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">12.00 THB</div>
+            <div class="card-history__status card-history__status--wait">Ожидает</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">32.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">15.00 THB</div>
+            <div class="card-history__status card-history__status--success">Оплачено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">40.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">125.00 THB</div>
+            <div class="card-history__status card-history__status--cancel">Отменено</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">339.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
+        <div class="history__card card-history">
+          <div class="card-history__left">
+            <div class="card-history__amount">12.00 THB</div>
+            <div class="card-history__status card-history__status--wait">Ожидает</div>
+          </div>
+          <div class="card-history__right">
+            <div class="card-history__code">eac7614-3d78-73ba-bbe2-ddb30470074f</div>
+            <div class="card-history__payment-amount">Payment amount: <span class="payment__amount">32.00 RUB</span></div>
+            <div class="card-history__date-container">
+              <div class="card-history__date">2024-08-16</div>
+              <div class="card-history__time">10:04:02</div>
+            </div>
+          </div>
+        </div>
         <div class="history__card card-history">
           <div class="card-history__left">
             <div class="card-history__amount">15.00 THB</div>
