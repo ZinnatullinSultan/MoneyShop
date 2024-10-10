@@ -9,7 +9,17 @@
   }
   .date__input {
     width: 100%;
-}
+  }
+  /* поля ввода даты */
+  .date__filters{
+    flex-direction: column;
+  }
+  .card-history__amount{
+    font-size: 18px;
+  }
+  /* .card-history__left {
+    width: 168px;
+  } */
 }
 @media (max-width: 550px) {
   .menu__item{
@@ -47,7 +57,11 @@
   }
   .date__button {
     width: 100%;
-}
+  }
+  .main{
+    padding: 20px 25px 35px;
+    margin-bottom: 15px;
+  }
 }
 @media (max-width: 420px) {
   .menu__item--active{
@@ -80,10 +94,6 @@
   .menu__text {
     font-size: 12px;
   }
-  .main{
-    padding: 20px 25px 35px;
-    margin-bottom: 15px;
-  }
   body{
     padding: 10px;
   }
@@ -95,8 +105,9 @@
     margin-top: 25px;
     font-size: 16px;
   }
-  .footer{
+  .footer{ 
     height: 50px;
+    min-height: auto; /* Меню прыгать и растягиваться не должно больше */
   }
   .card-history:last-child {
     margin-bottom: 0;
@@ -155,5 +166,10 @@
   }
   .report__text:last-child {
     margin-bottom: 18px;
+  }
 }
+@media (max-width: 400px){
+  .card-history{
+    padding: 17px 16px 11px; /*отступы карточки для нормального отображения */
+  }
 }

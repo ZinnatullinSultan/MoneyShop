@@ -242,6 +242,7 @@ button {
   border: 2px solid #dfe7ec;
   border-radius: 20px;
   margin-bottom: 9px;
+  gap: 20px; 
 }
 .card-history__amount {
   font-weight: 700;
@@ -268,8 +269,12 @@ button {
   color: #090e10;
   margin-bottom: 7px;
 }
+.card-history__left{
+  width: 168px; /*Размер левой части */
+}
 .card-history__right {
   font-size: 12px;
+  width: 260px; /*Отступы в карточках оплаты одинаковые*/
   color: #090e10;
 }
 .card-history__date-container {
