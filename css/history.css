@@ -75,6 +75,9 @@ button {
   padding: 19px 115px;
   border-radius: 20px;
 }
+.body--history{
+  overflow: hidden;
+}
 .main {
   flex-grow: 1;
   border-radius: 20px;
@@ -84,6 +87,9 @@ button {
   padding: 60px 80px 60px 82px;
   font-weight: 350;
   position: relative;
+}
+.main--history{
+  overflow: auto;
 }
 .logo {
   display: block;
@@ -313,7 +319,7 @@ input[type='date']::-webkit-calendar-picker-indicator {
 #dateTo::after{
   content: 'До';
 }
-.history__info{
+/* .history__info{
   overflow-y: scroll;
   max-height: 760px;
-}
+} */
